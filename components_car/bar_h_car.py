@@ -19,4 +19,13 @@ def render():
 @analysis_decorator
 def update_figure(df):
     fig = px.bar(df, x='Sales_in_thousands', y='Model_Label', orientation='h', title='Top Models by Sales (Horizontal)')
+    fig.update_layout(
+        plot_bgcolor='rgba(255, 255, 255, 0.1)',
+        paper_bgcolor='rgba(255, 255, 255, 0.1)',
+        title_font_color='#ffffff',
+        title_font_size=16,
+        xaxis_title_font_color='#ffffff',
+        yaxis_title_font_color='#ffffff',
+        font_color='#ffffff'
+    )
     return fig

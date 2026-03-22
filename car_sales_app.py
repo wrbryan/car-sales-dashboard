@@ -15,8 +15,6 @@ manufacturers = get_manufacturers(PATH)
 
 app = Dash(external_stylesheets=[dbc.themes.COSMO])
 
-background_image_url = "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1350&q=80"
-
 app.layout = background_car.render([
     dbc.Container([
         dbc.Row([
