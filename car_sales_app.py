@@ -14,22 +14,50 @@ manufacturers = get_manufacturers(PATH)
 
 app = Dash(external_stylesheets=[dbc.themes.COSMO])
 
-app.layout = dbc.Container([
-    dbc.Row([
-        dbc.Col([
-            html.H1("Car Sales Analysis", className="text-center my-4")
-        ], width=12)
-    ]),
-    dropdown_car.render(manufacturers),
-    dbc.Row([
-        dbc.Col(pie_car.render(), lg=6),
-        dbc.Col(bar_car.render(), lg=6)
-    ]),
-    dbc.Row([
-        dbc.Col(bar_h_car.render(), lg=6),
-        dbc.Col(scatter_car.render(), lg=6)
-    ])
-])
+background_image_url = "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1350&q=80"
+
+app.layout = html.Div(
+    style={
+        'backgroundImage': f'url({background_image_url})',
+        'backgroundSize': 'cover',
+        'backgroundPosition': 'center',
+        'backgroundRepeat': 'no-repeat',
+        'minHeight': '100vh',
+        'color': '#ffffff',
+        'fontFamily': 'Arial, sans-serif'
+    },
+    children=[
+        html.Div(
+            style={
+                'backgroundColor': 'rgba(0, 0, 0, 0.45)',
+                'minHeight': '100vh',
+                'padding': '20px'
+            },
+            children=[
+                dbc.Container([
+                    dbc.Row([
+                        dbc.Col([
+                            html.H1(
+                                "Car Sales Analysis",
+                                className="text-center my-4",
+                                style={'color': '#ffffff', 'textShadow': '2px 2px 6px rgba(0,0,0,0.85)'}
+                            )
+                        ], width=12)
+                    ]),
+                    dropdown_car.render(manufacturers),
+                    dbc.Row([
+                        dbc.Col(pie_car.render(), lg=6),
+                        dbc.Col(bar_car.render(), lg=6)
+                    ]),
+                    dbc.Row([
+                        dbc.Col(bar_h_car.render(), lg=6),
+                        dbc.Col(scatter_car.render(), lg=6)
+                    ])
+                ], fluid=True)
+            ]
+        )
+    ]
+)
 
 @app.callback(
     Output('model-dropdown', 'options'),
