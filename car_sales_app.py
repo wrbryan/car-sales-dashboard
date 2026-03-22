@@ -15,6 +15,11 @@ manufacturers = get_manufacturers(PATH)
 app = Dash(external_stylesheets=[dbc.themes.COSMO])
 
 app.layout = dbc.Container([
+    dbc.Row([
+        dbc.Col([
+            html.H1("Car Sales Analysis", className="text-center my-4")
+        ], width=12)
+    ]),
     dropdown_car.render(manufacturers),
     dbc.Row([
         dbc.Col(pie_car.render(), lg=6),
