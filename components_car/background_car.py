@@ -1,12 +1,23 @@
+from pathlib import Path
+
 from dash import html
 
-BACKGROUND_IMAGE_URL = "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1350&q=80"
+BACKGROUND_ASSET_NAME = "pexels-musaortac-3879208.jpg"
+
+
+def _background_url():
+    asset_path = Path(__file__).resolve().parent.parent / "assets" / BACKGROUND_ASSET_NAME
+    if asset_path.exists():
+        version = int(asset_path.stat().st_mtime)
+        return f"/assets/{BACKGROUND_ASSET_NAME}?v={version}"
+    return f"/assets/{BACKGROUND_ASSET_NAME}"
 
 
 def render(children):
+    background_image_url = _background_url()
     return html.Div(
         style={
-            'backgroundImage': f'url({BACKGROUND_IMAGE_URL})',
+            'backgroundImage': f'url({background_image_url})',
             'backgroundSize': 'cover',
             'backgroundPosition': 'center',
             'backgroundRepeat': 'no-repeat',
@@ -17,7 +28,7 @@ def render(children):
         children=[
             html.Div(
                 style={
-                    'backgroundColor': 'rgba(0, 0, 0, 0.45)',
+                    'backgroundColor': 'rgba(0, 0, 0, 0.62)',
                     'minHeight': '100vh',
                     'padding': '20px'
                 },

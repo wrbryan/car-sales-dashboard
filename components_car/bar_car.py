@@ -20,12 +20,14 @@ def render():
 def update_figure(df):
     fig = px.bar(df, x='Model_Label', y='Sales_in_thousands', title='Top Models by Sales')
     fig.update_layout(
-        plot_bgcolor='rgba(255, 255, 255, 0.1)',
-        paper_bgcolor='rgba(255, 255, 255, 0.1)',
+        plot_bgcolor='rgba(0, 0, 0, 0.45)',
+        paper_bgcolor='rgba(0, 0, 0, 0.45)',
         title_font_color='#ffffff',
         title_font_size=16,
         xaxis_title_font_color='#ffffff',
         yaxis_title_font_color='#ffffff',
+        xaxis=dict(tickfont=dict(color='#ffffff'), gridcolor='rgba(255,255,255,0.2)'),
+        yaxis=dict(tickfont=dict(color='#ffffff'), gridcolor='rgba(255,255,255,0.2)'),
         font_color='#ffffff'
     )
     return fig

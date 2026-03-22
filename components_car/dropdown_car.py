@@ -4,7 +4,7 @@ import dash_bootstrap_components as dbc
 def render(manufacturers):
     return dbc.Row([
         dbc.Col([
-            html.Label("Select Manufacturers:"),
+            html.Label("Select Manufacturers:", style={'color': '#ffffff', 'fontWeight': '600', 'textShadow': '1px 1px 3px rgba(0,0,0,0.9)'}),
             dcc.Dropdown(
                 id='manufacturer-dropdown',
                 options=[{'label': m, 'value': m} for m in manufacturers],
@@ -14,7 +14,7 @@ def render(manufacturers):
             )
         ], width=12),
         dbc.Col([
-            html.Label("Select Models:"),
+            html.Label("Select Models:", style={'color': '#ffffff', 'fontWeight': '600', 'textShadow': '1px 1px 3px rgba(0,0,0,0.9)'}),
             dcc.Dropdown(
                 id='model-dropdown',
                 options=[],
@@ -25,6 +25,6 @@ def render(manufacturers):
             )
         ], width=12),
         dbc.Col([
-            html.Div(id='models-list', style={'marginTop': '0.5rem'})
+            html.Div(id='models-list', style={'marginTop': '0.5rem', 'color': '#ffffff', 'fontWeight': '600', 'textShadow': '1px 1px 3px rgba(0,0,0,0.9)'})
         ], width=12)
     ])

@@ -17,10 +17,16 @@ def render():
 @analysis_decorator
 def update_figure(df):
     fig = px.pie(df, values='Sales_in_thousands', names='Model_Label', title='Top Models by Sales')
+    fig.update_traces(textfont_color='#ffffff')
     fig.update_layout(
-        plot_bgcolor='rgba(255, 255, 255, 0.1)',
-        paper_bgcolor='rgba(255, 255, 255, 0.1)',
+        plot_bgcolor='rgba(0, 0, 0, 0.45)',
+        paper_bgcolor='rgba(0, 0, 0, 0.45)',
         title_font_color='#ffffff',
-        title_font_size=16
+        title_font_size=16,
+        font_color='#ffffff',
+        legend=dict(
+            font=dict(color='#ffffff'),
+            bgcolor='rgba(0, 0, 0, 0)'
+        )
     )
     return fig
